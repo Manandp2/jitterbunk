@@ -1,3 +1,7 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'powerups/style.css' %}">
+
 <a href="{{ powerup.link}}"><h1>{{ powerup.title }}</h1></a>
 <h2>Description: </h2>
 <p>{{ powerup.description }}</p>

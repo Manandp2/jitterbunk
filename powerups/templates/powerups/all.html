@@ -1,3 +1,7 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'powerups/style.css' %}">
+
 <h1>All Powerups List</h1>
 
 <form action="{% url 'powerups:sort' %}" method="get">

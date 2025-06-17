@@ -1,0 +1,23 @@
+<h1>All Powerups List</h1>
+
+<form action="{% url 'powerups:sort' %}" method="get">
+    {% csrf_token %}
+    <select id="sort_by" name="sort_by">
+        <option value="date_added">Date</option>
+        <option value="title">Title</option>
+    </select>
+    <input type="submit" value="Sort">
+</form>
+
+{% if all_powerups_list %}
+    <ul>
+    {% for powerup in all_powerups_list %}
+        <li><a href="{% url 'powerups:powerup_detail' powerup.id %}">{{ powerup.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No powerups are available.</p>
+{% endif %}
+
+<br>
+<p><a href="{% url 'powerups:index' %}">Go to Home</a></p>

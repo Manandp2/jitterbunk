@@ -1,0 +1,13 @@
+<a href="{{ powerup.link}}"><h1>{{ powerup.title }}</h1></a>
+<h2>Description: </h2>
+<p>{{ powerup.description }}</p>
+
+<br>
+<ul>
+    <li>Date Added: {{ powerup.date_added }}</li>
+    <li>User: {{ powerup.user }}</li>
+    <li>Team: {{ powerup.team }}</li>
+</ul>
+
+<br>
+<p><a href="{% url 'powerups:index' %}">Go to Home</a></p>

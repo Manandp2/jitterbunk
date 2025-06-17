@@ -1,0 +1,11 @@
+<!-- {% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'powerups/style.css' %}"> -->
+
+<h1>Home</h1>
+
+<p>
+<a href="{% url 'powerups:all' 'id' %}">View all powerups</a> <br>
+<a href="{% url 'powerups:users' %}"> View all users</a> <br>
+<a href="{% url 'powerups:add_powerup' %}">Add a new powerup</a>
+</p>

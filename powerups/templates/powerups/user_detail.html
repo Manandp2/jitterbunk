@@ -1,0 +1,21 @@
+{% load static %}
+{% if user %}
+    <h1>{{ user.username }}</h1>
+    {% with 'powerups/images/'|add:user.photo as user_photo %}
+        <img src="{% static user_photo %}">
+    {% endwith %}
+    
+    <p>Team: {{ user.team }}</p>
+    <br>
+    <p>Personal Powerups:</p>
+    <ul>
+    {% for powerup in powerup_list.all %}
+        <li><a href="{% url 'powerups:powerup_detail' powerup.id %}">{{powerup.title}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p> No user</p>
+{% endif %}
+
+<br>
+<p><a href="{% url 'powerups:index' %}">Go to Home</a></p>

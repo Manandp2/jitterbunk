@@ -1,0 +1,30 @@
+<form action="{% url 'powerups:create' %}" method="post">
+{% csrf_token %}
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title" value="{% if old_form_entries %} {{old_form_entries.title}} {% endif %}"><br>
+
+    <label for="link">Link:</label><br>
+    <input type="url" id="link" name="link" value="{% if old_form_entries %} {{old_form_entries.link}} {% endif %}"><br>
+
+    <label for="description">Description:</label><br>
+    <input type="text" id="description" name="description" value="{% if old_form_entries %} {{old_form_entries.description}} {% endif %}"><br>
+
+    <label for="user">User:</label><br>
+    <!-- <input type="text" id="user" name="user"><br> -->
+    <select id="user" name="user">
+        {% for user in user_list %}
+            <option value="{{user.username}}">{{user.username}}</option>
+        {% endfor %}
+    </select>
+    <br>
+
+    <label for="team">Team:</label><br>
+    <input type="text" id="team" name="team" value="{% if old_form_entries %} {{old_form_entries.team}} {% endif %}"><br>
+
+<input type="submit" value="Create">
+</form>
+
+<br>
+<p><a href="{% url 'powerups:index' %}">Go to Home</a></p>

@@ -1,0 +1,18 @@
+<!-- {% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'powerups/style.css' %}"> -->
+
+<h1>All Users List</h1>
+
+{% if all_users_list %}
+    <ul>
+    {% for user in all_users_list %}
+        <li><a href="{% url 'powerups:user_detail' user.id %}">{{ user.username }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No users are available.</p>
+{% endif %}
+
+<br>
+<p><a href="{% url 'powerups:index' %}">Go to Home</a></p>
